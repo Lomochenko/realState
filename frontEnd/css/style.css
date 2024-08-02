@@ -5,9 +5,44 @@
     --light: #EFFDF5;
     --dark: #0E2E50;
 }
-html,body{
+
+html,
+body {
     scroll-behavior: smooth !important;
 }
+
+/*Scrollbar 'Chrome, Edge and Safari' */
+*::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 5px;
+    background-color: #EFFDF5;
+}
+
+*::-webkit-scrollbar-track:hover {
+    background-color: #EFFDF5;
+}
+
+*::-webkit-scrollbar-track:active {
+    background-color: #EFFDF5;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #00B98E;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #00B188;
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background-color: #00B98E;
+}
+
 .back-to-top {
     position: fixed;
     display: none;
