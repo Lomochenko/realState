@@ -1,0 +1,421 @@
+{% load static %}
+{% load thumbnail %}
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Primary Meta Tags -->
+    <title>املاک فرزانه</title>
+    <meta name="title" content="Amlak Farzaneh">
+    <meta name="description"
+        content="ما مجموعه‌ای از بهترین املاک را با قیمت‌های مناسب و شرایط عالی به شما ارائه می‌دهیم. از آپارتمان‌های مدرن گرفته تا ویلاهای دنج، همه‌چیز در انتظار شماست">
+    <meta content="{% for option in options %} {{ option.title }} ,{% endfor %}" name="keywords">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://amlakfarzaneh.ir">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="املاک فرزانه">
+    <meta property="og:description"
+        content="ما مجموعه‌ای از بهترین املاک را با قیمت‌های مناسب و شرایط عالی به شما ارائه می‌دهیم. از آپارتمان‌های مدرن گرفته تا ویلاهای دنج، همه‌چیز در انتظار شماست">
+
+    <meta property="og:image" content="{% static 'img/m.png' %}" />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="amlakfarzaneh.ir">
+    <meta property="twitter:url" content="https://amlakfarzaneh.ir">
+    <meta name="twitter:title" content="املاک فرزانه">
+    <meta name="twitter:description"
+        content="ما مجموعه‌ای از بهترین املاک را با قیمت‌های مناسب و شرایط عالی به شما ارائه می‌دهیم. از آپارتمان‌های مدرن گرفته تا ویلاهای دنج، همه‌چیز در انتظار شماست">
+
+    <meta property="twitter:image" content="{% static 'img/m.png' %}" />
+    <!-- Primary Meta Tags end -->
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="{% static 'font/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar Start -->
+        <div class="container-fluid nav-bar bg-transparent">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+                <a href="{% url 'home_page' %}" class="navbar-brand d-flex align-items-center text-center">
+                    <div class="icon p-2 ms-2">
+                        <img class="img-fluid" src="{{ header.site_logo.url }}" alt="Icon"
+                            style="width: 30px; height: 30px;">
+                    </div>
+                    <strong class="m-0 fs-2 text-primary">{{ header.site_name }}</strong>
+                </a>
+                <a href="tel:{{ footer.phone }}"
+                    class="btn btn-primary px-3 d-flex fs-5 d-flex d-lg-none me-auto ms-3">تماس
+                    با ما</a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+                        <a href="{% url 'home_page' %}" class="nav-item fs-5 nav-link active">خانه</a>
+                        <a href="#property-list" class="nav-item fs-5 nav-link">فایل</a>
+                        <a href="{% url 'add_phone_number' %}" class="nav-item fs-5 nav-link">ثبت آگهی</a>
+                        <a href="{% url 'article_page' %}" class="nav-item fs-5 nav-link">مقاله</a>
+                        <a href="#about" class="nav-item fs-5 nav-link">درباره با ما</a>
+                        <a href="#contact-us" class="nav-item fs-5 nav-link">ارتباط با ما</a>
+                    </div>
+                    <a href="tel:{{ footer.phone }}" class="btn btn-primary px-3 d-flex fs-5 d-none d-lg-flex">تماس با
+                        ما</a>
+                </div>
+            </nav>
+        </div>
+        <!-- Navbar End -->
+
+
+        <!-- Header Start -->
+        <div class="container-fluid header bg-white p-0" dir="ltr">
+            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                <div class="col-md-6 p-5 mt-lg-5">
+                    <h1 class="display-5 animated fadeIn mb-4 text-center">املاک <span class="text-primary">
+                            فرزانه</span>
+                    </h1>
+                    <p class="animated fadeIn fs-4 mb-4 pb-2 text-center">در کمترین زمان و با مناسب ترین قیمت خانه‌دار
+                        شوید</p>
+                    <div class="text-center">
+                        <a href="#property-list" class="btn btn-primary py-3 px-5 me-3 animated fadeIn text-end">مشاهده
+                            فایل
+                            ها</a>
+                    </div>
+                </div>
+                <div class="col-md-6 animated fadeIn">
+                    <div class="owl-carousel header-carousel">
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="{% static 'img/carousel-1.jpg' %}" alt="">
+                        </div>
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="{% static 'img/carousel-2.jpg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+        <!-- Search Start -->
+        <div class="container-fluid bg-primary p-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="row flex-column justify-content-center align-items-center">
+                <!-- <div class="col">
+                    <h5 class="text-nowrap text-center text-md-center">شهر خود را انتخاب کنید</h5>
+                </div> -->
+                <!-- select city -->
+                <div class="col-8 col-md-6">
+                    <select class="form-select border-0 py-3 fs-6 text-center" onchange="redirectToURL(this)">
+                        <option value="">شهر خود را انتخاب کنید</option>
+                        <option value="https://google.com">مهستان</option>
+                        <option value="https://google.com">کرج</option>
+                        <option value="https://google.com">تهران</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- Search End -->
+
+        <!-- Property List Start -->
+        <div class="container-xxl py-5" id="property-list">
+            <div class="container">
+                <div class="row g-0 gx-5 align-items-end" dir="rtl">
+                    <div class="col-lg-6">
+                        <div class="text-end mx-auto mb-5 wow slideInRight" data-wow-delay="0.1s">
+                            <h3 class="mb-3">لیست فایل ها</h3>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                        <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 px-0">
+                            {% for option in options %}
+                            <li class="nav-item my-3 mx-1">
+                                <a class="btn-lg btn-outline-primary {% if forloop.first %} active{% endif %}"
+                                    data-bs-toggle="pill" href="#{{ option.slug }}">{{ option.title }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    {% for option in options %}
+                    <div id="{{ option.slug }}" class="tab-pane fade show p-0 {% if forloop.first %}active{% endif %}">
+                        <div class="row g-4">
+                            {% for product in option.products %}
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        {% if product.image %}
+                                        {% thumbnail product.image "750x750" as im %}
+                                        <img class="img-thumbnail" alt="{{ product.title }}" src="{{ im.url }}">
+                                        {% endthumbnail %}
+
+                                        {% endif %}
+
+
+                                        <div
+                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3 fs-5">
+                                            {{ product.title }}
+                                        </div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">{{ product.price }}</h5>
+                                        <p class="fs-5">{{ product.description }}</p>
+                                        <p>
+                                            <i class="fa fa-map-marker-alt text-primary ms-2"></i>{{ product.address }}
+                                        </p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        {% if product.area %}
+                                        <small class="flex-fill text-center border-end py-2 fs-6"><i
+                                                class="fa fa-ruler-combined text-primary ms-2"></i>{{ product.area }}
+                                        </small>
+                                        {% endif %}
+
+                                        {% if product.room %}
+                                        <small class="flex-fill text-center border-end py-2 fs-6"><i
+                                                class="fa fa-bed text-primary ms-2"></i>{{ product.room }} خواب
+                                        </small>
+                                        {% endif %}
+                                        {% if product.bath %}
+                                        <small class="flex-fill text-center py-2 fs-6"><i
+                                                class="fa fa-bath text-primary ms-2"></i>{{ product.bath }}
+                                            سرویس </small>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Property List End -->
+
+        <!-- advertisement Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                            <img class="img-fluid w-100" alt="درباره ما" src="{% static 'img/about.jpg' %}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h4 class="mb-4 fs-2">ثبت آگهی</h4>
+                        <p class="mb-4 fs-5">ملک شما را در کم‌ترین زمان و با مناسب ترین قیمت ممکن برای شما به فروش می
+                            رسانیم<br>با
+                            پرکردن فرم زیر کارشناسان ما در اسرع وقت با شما تماس می گیرند</p>
+
+                        <a class="btn-lg btn-primary py-3 mt-3 text-center d-block"
+                            href="{% url 'add_phone_number' %}">ثبت
+                            آگهی</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- advertisement Action End -->
+
+        <!-- Category Start -->
+        <div class="container-xxl py-5" id="property-type">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h3 class="mb-3">انواع فایل ها</h3>
+
+                </div>
+                <div class="row g-4">
+                    {% for option in options %}
+                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <a class="cat-item d-block bg-light text-center rounded p-3" target="_parent"
+                            href="{% url 'Estate_by_category_list' url_slug=option.url_slug %}">
+                            <div class="rounded p-4">
+                                {% if option.image %}
+                                <div class="icon mb-3">
+                                    <img class="img-fluid" src="{{ option.image.url }}" alt="Icon">
+                                </div>
+                                {% endif %}
+
+                                <h6 class="fs-5">{{ option.title }}</h6>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container-xxl py-5" dir="ltr">
+            <div class="container">
+                <div class="row g-5 align-items-center text-end">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                            <img class="img-fluid w-100" alt="درباره ما"
+                                src="{% static 'img/362cc67a6ed15012baa58ce0b6878578.jpg' %}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h4 class="mb-4 fs-2">مشارکت در ساخت و بازسازی</h4>
+                        <p class="mb-3 fs-5">اگر به دنبال یک شریک قابل اعتماد برای مشارکت در پروژه‌های ساخت و بازسازی
+                            هستید،
+                            با ما در ارتباط باشید. ما آماده‌ایم تا به شما کمک کنیم تا رویای خود را به واقعیت تبدیل کنید
+                        </p>
+                        <p class="mb-3 fs-5">همچنین اگر آماده‌اید که فضای خود را بازسازی کنید و به آن جان تازه‌ای
+                            ببخشید، با
+                            ما تماس بگیرید. ما با کمال میل به شما کمک خواهیم کرد تا پروژه بازسازی‌تان را به واقعیت تبدیل
+                            کنید </p>
+                        <a href="tel:{{ footer.phone }}" class="btn btn-dark py-3 d-block">
+                            <i class="fa fa-phone-alt me-3"></i>تماس با ما</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category End -->
+        <div class="container-xxl py-5" dir="ltr">
+            <div class="container">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+                    <h2 class="mb-3">! مطالب مفید خرید ملک و آپارتمان</h2>
+
+                </div>
+                <div class="owl-carousel text-end testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                    {% for article in articles %}
+                    <div class="testimonial-item bg-light rounded p-3">
+                        <div class="bg-white border rounded p-4">
+                            <h4> {{ article.title }}</h4>
+                            <p class="fs-5">{{ article.short_description }}</p>
+                            <div class="d-flex justify-content-end">
+                                <a href="{% url 'articles_detail' slug=article.slug %}"
+                                    class="btn btn-primary fs-5">ادامه
+                                    مطلب</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+        <!-- About Start -->
+        <div class="container-xxl py-5" id="about">
+            <div class="container">
+                <div class="bg-light rounded p-3">
+                    <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                        <div class="row g-5 align-items-center">
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                                {% thumbnail about.image "700x700" as im %}
+
+                                <img class="img-fluid" alt="{{ product.title }}" src="{{ im.url }}">
+                                {% endthumbnail %}
+
+                            </div>
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                                <div class="mb-4">
+                                    <h2 class="mb-3">{{ about.title }}</h2>
+                                    <p class="fs-5">{{ about.text }}</p>
+                                </div>
+                                <a href="tel:{{ footer.phone }}" class="btn btn-dark py-3 d-block">
+                                    <i class="fa fa-phone-alt ms-3"></i>تماس با ما</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+        {# <!-- Footer Start -->#}
+        <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" id="contact-us"
+            data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-md-6">
+                        <h5 class="text-white mb-4">دسترسی به ما</h5>
+                        <p class="mb-2 pt-3 fs-5"><i class="fa fa-map-marker-alt ms-3 fs-5"></i>{{ footer.address }}</p>
+                        <p class="mb-2 pt-2 fs-5"><i class="bi bi-clock ms-3 fs-5"></i>{{ footer.work_time }}</p>
+                        <a href="tel:09123456789" target="_blank" class="mb-2 d-block fs-5 py-2"><i
+                                class="fa fa-phone-alt ms-3 fs-5"></i>{{ footer.phone }}</a>
+                        <a href="https://www.instagram.com/{{ footer.instagram }}" target="_blank" class="mb-2 fs-5"><i
+                                class="bi bi-instagram ms-3 fs-5"></i>{{ footer.instagram }}
+                        </a>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="text-white mb-4 fs-5">دسترسی سریع</h5>
+                        <a class="btn btn-link text-white-50 text-end pt-2 fs-5" href="{% url 'home_page' %}">خانه</a>
+                        <a class="btn btn-link text-white-50 text-end fs-5" href="#property-list">فایل ها</a>
+                        <a class="btn btn-link text-white-50 text-end fs-5" href="{% url 'add_phone_number' %}">ثبت
+                            آگهی</a>
+                        <a class="btn btn-link text-white-50 text-end fs-5" href="{% url 'article_page' %}">مقالات</a>
+                        <a class="btn btn-link text-white-50 text-end fs-5" href="#about">درباره ما</a>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-12 text-center mb-3 mb-md-0 fs-5">
+                            &copy; طراحی و توسعه توسط <a class="border-bottom" target="_blank"
+                                href="https://pestehmenu.ir/">Pesteh Menu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {# <!-- Footer End -->#}
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+
+    <script src="{% static 'js/selectCity.js' %}"></script>
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,266 @@
+{% load static %}
+{% load thumbnail %}
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Primary Meta Tags -->
+    {% for estate in estates %}
+        {% if forloop.counter == 1 %}
+            <title> خرید {{ estate.category.title }}</title>
+        {% else %}
+
+        {% endif %}
+
+    {% endfor %}
+    <meta name="title" content="Property Amlak Farzaneh">
+    <meta name="description"
+          content="ما مجموعه‌ای از بهترین املاک را با قیمت‌های مناسب و شرایط عالی به شما ارائه می‌دهیم. از آپارتمان‌های مدرن گرفته تا ویلاهای دنج، همه‌چیز در انتظار شماست">
+    <meta content="خرید زمین و خرید آپارتمان , خرید ویلا , خرید باغ و باغچه , خرید خانه" name="keywords">
+
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://amlakfarzaneh.ir">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="املاک فرزانه">
+    <meta property="og:description"
+          content="ما مجموعه‌ای از بهترین املاک را با قیمت‌های مناسب و شرایط عالی به شما ارائه می‌دهیم. از آپارتمان‌های مدرن گرفته تا ویلاهای دنج، همه‌چیز در انتظار شماست">
+
+    <meta property="twitter:image" content="{% static 'img/m.png' %}"/>
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="amlakfarzaneh.ir">
+    <meta property="twitter:url" content="https://amlakfarzaneh.ir">
+    <meta name="twitter:title" content="املاک فرزانه">
+    <meta name="twitter:description"
+          content="ما مجموعه‌ای از بهترین املاک را با قیمت‌های مناسب و شرایط عالی به شما ارائه می‌دهیم. از آپارتمان‌های مدرن گرفته تا ویلاهای دنج، همه‌چیز در انتظار شماست">
+
+    <meta property="twitter:image" content="{% static 'img/m.png' %}"/>
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+
+    <!-- Icon Font Stylesheet -->
+    <link href="{% static 'font/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-icons.css' %}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<div class="container-xxl bg-white p-0">
+    <!-- Spinner Start -->
+    <div id="spinner"
+         class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid nav-bar bg-transparent">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+            <a href="{% url 'home_page' %}" class="navbar-brand d-flex align-items-center text-center">
+                <div class="icon p-2 ms-2">
+                    <img class="img-fluid" src="{{ header.site_logo.url }}" alt="Icon"
+                         style="width: 30px; height: 30px;">
+                </div>
+                <strong class="m-0 fs-2 text-primary">{{ header.site_name }}</strong>
+            </a>
+            <a href="tel:{{ footer.phone }}" class="btn btn-primary px-3 d-flex fs-5 d-flex d-lg-none me-auto ms-3">تماس
+                با ما</a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav mx-auto">
+                    <a href="{% url 'home_page' %}" class="nav-item fs-5 nav-link">خانه</a>
+                    <a href="#property-list" class="nav-item fs-5 nav-link active">فایل</a>
+                    <a href="{% url 'add_phone_number' %}" class="nav-item fs-5 nav-link">ثبت آگهی</a>
+                    <a href="{% url 'article_page' %}" class="nav-item fs-5 nav-link">مقاله</a>
+                    <a href="{% url 'home_page' %}#about" class="nav-item fs-5 nav-link">درباره با ما</a>
+                    <a href="#contact-us" class="nav-item fs-5 nav-link">ارتباط با ما</a>
+                </div>
+                <a href="tel:{{ footer.phone }}" class="btn btn-primary px-3 d-flex fs-5 d-none d-lg-flex">تماس با
+                    ما</a>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+
+    <!-- Property List Start -->
+    <div class="container-xxl py-5" id="property-list">
+        <div class="container">
+            <div class="row g-0 gx-5 align-items-end" dir="ltr">
+                <div class="col-lg-12">
+                    <div class="text-end mx-auto mb-5 wow slideInRight" data-wow-delay="0.1s">
+                        {% for estate in estates %}
+                            {% if forloop.counter == 1 %}
+                                <h1 class="mb-3"> خرید {{ estate.category.title }}</h1>
+                            {% else %}
+
+                            {% endif %}
+
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+                        {% for product in estates %}
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden">
+                                        {% if product.image %}
+                                            {% thumbnail product.image "700x700" as im %}
+
+                                                <img class="img-fluid" alt="{{ product.title }}"
+                                                     src="{{ im.url }}">
+                                            {% endthumbnail %}
+                                        {% endif %}
+
+
+                                        <div
+                                                class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3 fs-5">
+                                            {{ product.title }}
+                                        </div>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        <h5 class="text-primary mb-3">{{ product.price }}</h5>
+                                        <p class="fs-5">{{ product.description }}</p>
+                                        <p>
+                                            <i class="fa fa-map-marker-alt text-primary ms-2"></i>{{ product.address }}
+                                        </p>
+                                    </div>
+                                    <div class="d-flex border-top">
+                                        {% if product.area %}
+                                            <small class="flex-fill text-center border-end py-2 fs-6"><i
+                                                    class="fa fa-ruler-combined text-primary ms-2"></i>{{ product.area }}
+                                            </small>
+                                        {% endif %}
+
+                                        {% if product.room %}
+                                            <small class="flex-fill text-center border-end py-2 fs-6"><i
+                                                    class="fa fa-bed text-primary ms-2"></i>{{ product.room }} خواب
+                                            </small>
+                                        {% endif %}
+                                        {% if product.bath %}
+                                            <small class="flex-fill text-center py-2 fs-6"><i
+                                                    class="fa fa-bath text-primary ms-2"></i>{{ product.bath }}
+                                                سرویس </small>
+                                        {% endif %}
+
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div>
+        <nav aria-label="pagination navigation pt-3">
+            <ul class="pagination justify-content-center" dir="ltr">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}#blog">
+                            قبلی
+                        </a>
+                    </li>
+                {% endif %}
+                {% for pageNumber in paginator.page_range %}
+
+                    <li class="page-item{% if page_obj.number == pageNumber %} active {% endif %}">
+                        <a class="page-link" href="?page={{ pageNumber }}#articles">
+                            {{ pageNumber }}
+                        </a>
+                    </li>
+
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}#articles">
+                            بعدی
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    <!-- Property List End -->
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" id="contact-us"
+         data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <h5 class="text-white mb-4">دسترسی به ما</h5>
+                    <p class="mb-2 pt-3 fs-5"><i class="fa fa-map-marker-alt fs-5 ms-3"></i>{{ footer.address }}</p>
+                    <p class="mb-2 pt-3 fs-5"><i class="bi bi-clock fs-5 ms-3"></i>{{ footer.work_time }}</p>
+                    <a href="tel:09123456789" target="_blank" class="mb-2 d-block fs-5 py-3"><i
+                            class="fa fa-phone-alt fs-5 ms-3"></i>{{ footer.phone }}</a>
+                    <a href="https://www.instagram.com/{{ footer.instagram }}" target="_blank" class="mb-2 fs-5"><i
+                            class="bi bi-instagram ms-3 fs-5"></i>{{ footer.instagram }}
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-white mb-4">دسترسی سریع</h5>
+                    <a class="btn btn-link text-white-50 text-end fs-5 pt-2" href="{% url 'home_page' %}">خانه</a>
+                    <a class="btn btn-link text-white-50 text-end fs-5" href="{% url 'home_page' %}#property-list">فایل
+                        ها</a>
+                    <a class="btn btn-link text-white-50 text-end fs-5" href="{% url 'add_phone_number' %}">ثبت آگهی</a>
+                    <a class="btn btn-link text-white-50 text-end fs-5" href="{% url 'article_page' %}">مقالات</a>
+                    <a class="btn btn-link text-white-50 text-end fs-5" href="{% url 'home_page' %}#about">درباره ما</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-12 text-center mb-3 mb-md-0">
+                        All Right Reserved.
+                        Designed By <a class="border-bottom" href="https://pestehmenu.ir/">Pesteh Menu</a> &copy;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
