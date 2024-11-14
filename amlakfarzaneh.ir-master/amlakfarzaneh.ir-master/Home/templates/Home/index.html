@@ -125,16 +125,16 @@
         <!-- Header End -->
 
         <!-- Search Start -->
-        <div class="container-fluid bg-primary p-3 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container bg-primary p-3 my-3 rounded-3 wow fadeIn selectCityContainer" data-wow-delay="0.1s">
             <div class="row">
                 <!-- select city -->
                 <div class="col-12 dropdown d-flex justify-content-center align-items-center ">
-                    <a class="btn btn-lg btn-light dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    <button class="btn btn-lg btn-light dropdown-toggle" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         شهر خود را انتخاب کنید
-                    </a>
+                    </button>
 
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu text-end">
                         <li><a class="dropdown-item" href="#">مهستان</a></li>
                         <li><a class="dropdown-item" href="#">کرح</a></li>
                         <li><a class="dropdown-item" href="#">تهران</a></li>
@@ -143,6 +143,45 @@
             </div>
         </div>
         <!-- Search End -->
+
+        <!-- property recomendation start -->
+        <div class="container-fluid bg-white p-0" dir="ltr">
+            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                <!-- carousel -->
+                <div class="col-md-6 animated fadeIn">
+                    <div class="owl-carousel header-carousel recomendationCarousel">
+                        <a href="#">
+                            <div class="owl-carousel-item">
+                                <img class="img-fluid" src="{% static 'img/carousel-1.jpg' %}" alt="">
+                                <div class="carousel-caption d-block">
+                                    <h5>1.200.000T</h5>
+                                    <p class="fs-5">مهستان</p>
+                                </div>
+                            </div>
+                        </a>
+                        <!--  -->
+                        <a href="#">
+                            <div class="owl-carousel-item">
+                                <img class="img-fluid" src="{% static 'img/carousel-2.jpg' %}" alt="">
+                                <div class="carousel-caption d-block">
+                                    <h5>1.200.000T</h5>
+                                    <p class="fs-5">مهستان</p>
+                                </div>
+                            </div>
+                        </a>
+                        <!--  -->
+                    </div>
+                </div>
+                <!-- recomendation text -->
+                <div class="col-md-6 p-5 mt-lg-5">
+                    <h2 class="display-5 animated fadeIn mb-4 text-center">فایل های <span
+                            class="text-primary">پیشنهادی</span>
+                    </h2>
+                    <p class="animated fadeIn fs-4 mb-4 pb-2 text-center">فایل های خاص با ویژگی های خاص</p>
+                </div>
+            </div>
+        </div>
+        <!-- property recomendation end -->
 
         <!-- Property List Start -->
         <div class="container-xxl py-5" id="property-list">
@@ -190,13 +229,15 @@
                                         <h5 class="text-primary mb-3">{{ product.price }}</h5>
                                         <p class="fs-5">{{ product.description }}</p>
                                         <p>
-                                            <i class="fa fa-map-marker-alt text-primary ms-2"></i>{{ product.address }}
+                                            <i class="fa fa-map-marker-alt text-primary ms-2"></i>{{ product.address
+                                            }}
                                         </p>
                                     </div>
                                     <div class="d-flex border-top">
                                         {% if product.area %}
                                         <small class="flex-fill text-center border-end py-2 fs-6"><i
-                                                class="fa fa-ruler-combined text-primary ms-2"></i>{{ product.area }}
+                                                class="fa fa-ruler-combined text-primary ms-2"></i>{{ product.area
+                                            }}
                                         </small>
                                         {% endif %}
 
@@ -238,7 +279,8 @@
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                         <h4 class="mb-4 fs-2">ثبت آگهی</h4>
-                        <p class="mb-4 fs-5">ملک شما را در کم‌ترین زمان و با مناسب ترین قیمت ممکن برای شما به فروش می
+                        <p class="mb-4 fs-5">ملک شما را در کم‌ترین زمان و با مناسب ترین قیمت ممکن برای شما به فروش
+                            می
                             رسانیم<br>با
                             پرکردن فرم زیر کارشناسان ما در اسرع وقت با شما تماس می گیرند</p>
 
@@ -292,13 +334,16 @@
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                         <h4 class="mb-4 fs-2">مشارکت در ساخت و بازسازی</h4>
-                        <p class="mb-3 fs-5">اگر به دنبال یک شریک قابل اعتماد برای مشارکت در پروژه‌های ساخت و بازسازی
+                        <p class="mb-3 fs-5">اگر به دنبال یک شریک قابل اعتماد برای مشارکت در پروژه‌های ساخت و
+                            بازسازی
                             هستید،
-                            با ما در ارتباط باشید. ما آماده‌ایم تا به شما کمک کنیم تا رویای خود را به واقعیت تبدیل کنید
+                            با ما در ارتباط باشید. ما آماده‌ایم تا به شما کمک کنیم تا رویای خود را به واقعیت تبدیل
+                            کنید
                         </p>
                         <p class="mb-3 fs-5">همچنین اگر آماده‌اید که فضای خود را بازسازی کنید و به آن جان تازه‌ای
                             ببخشید، با
-                            ما تماس بگیرید. ما با کمال میل به شما کمک خواهیم کرد تا پروژه بازسازی‌تان را به واقعیت تبدیل
+                            ما تماس بگیرید. ما با کمال میل به شما کمک خواهیم کرد تا پروژه بازسازی‌تان را به واقعیت
+                            تبدیل
                             کنید </p>
                         <a href="tel:{{ footer.phone }}" class="btn btn-dark py-3 d-block">
                             <i class="fa fa-phone-alt me-3"></i>تماس با ما</a>
@@ -368,7 +413,8 @@
                 <div class="row g-5">
                     <div class="col-md-6">
                         <h5 class="text-white mb-4">دسترسی به ما</h5>
-                        <p class="mb-2 pt-3 fs-5"><i class="fa fa-map-marker-alt ms-3 fs-5"></i>{{ footer.address }}</p>
+                        <p class="mb-2 pt-3 fs-5"><i class="fa fa-map-marker-alt ms-3 fs-5"></i>{{ footer.address }}
+                        </p>
                         <p class="mb-2 pt-2 fs-5"><i class="bi bi-clock ms-3 fs-5"></i>{{ footer.work_time }}</p>
                         <a href="tel:09123456789" target="_blank" class="mb-2 d-block fs-5 py-2"><i
                                 class="fa fa-phone-alt ms-3 fs-5"></i>{{ footer.phone }}</a>
