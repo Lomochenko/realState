@@ -225,6 +225,7 @@ body {
 }
 .recomendationCarousel .owl-nav {
     right: -25px !important;
+    left: unset !important;
     position: absolute !important;
     top: 50%;
     transform: translateY(-50%);
