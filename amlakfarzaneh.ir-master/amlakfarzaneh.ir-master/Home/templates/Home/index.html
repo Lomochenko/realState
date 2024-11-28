@@ -133,8 +133,8 @@
                         aria-expanded="false">
                         شهر خود را انتخاب کنید
                     </button>
-
-                    <ul class="dropdown-menu text-end">
+                    
+                    <ul class="dropdown-menu text-center">
                         <li><a class="dropdown-item" href="#">مهستان</a></li>
                         <li><a class="dropdown-item" href="#">کرح</a></li>
                         <li><a class="dropdown-item" href="#">تهران</a></li>
@@ -184,7 +184,7 @@
         <!-- property recomendation end -->
 
         <!-- Property List Start -->
-        <div class="container-xxl py-5" id="property-list">
+        <!-- <div class="container-xxl py-5" id="property-list">
             <div class="container">
                 <div class="row g-0 gx-5 align-items-end" dir="rtl">
                     <div class="col-lg-6">
@@ -265,33 +265,8 @@
 
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Property List End -->
-
-        <!-- advertisement Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                            <img class="img-fluid w-100" alt="درباره ما" src="{% static 'img/about.jpg' %}">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <h4 class="mb-4 fs-2">ثبت آگهی</h4>
-                        <p class="mb-4 fs-5">ملک شما را در کم‌ترین زمان و با مناسب ترین قیمت ممکن برای شما به فروش
-                            می
-                            رسانیم<br>با
-                            پرکردن فرم زیر کارشناسان ما در اسرع وقت با شما تماس می گیرند</p>
-
-                        <a class="btn-lg btn-primary py-3 mt-3 text-center d-block"
-                            href="{% url 'add_phone_number' %}">ثبت
-                            آگهی</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- advertisement Action End -->
 
         <!-- Category Start -->
         <div class="container-xxl py-5" id="property-type">
@@ -322,6 +297,32 @@
                 </div>
             </div>
         </div>
+
+        <!-- advertisement Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                            <img class="img-fluid w-100" alt="درباره ما" src="{% static 'img/about.jpg' %}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <h4 class="mb-4 fs-2">ثبت آگهی</h4>
+                        <p class="mb-4 fs-5">ملک شما را در کم‌ترین زمان و با مناسب ترین قیمت ممکن برای شما به فروش
+                            می
+                            رسانیم<br>با
+                            پرکردن فرم زیر کارشناسان ما در اسرع وقت با شما تماس می گیرند</p>
+
+                        <a class="btn-lg btn-primary py-3 mt-3 text-center d-block"
+                            href="{% url 'add_phone_number' %}">ثبت
+                            آگهی</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- advertisement Action End -->
+
 
         <div class="container-xxl py-5" dir="ltr">
             <div class="container">
