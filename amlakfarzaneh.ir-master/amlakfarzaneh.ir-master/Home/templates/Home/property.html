@@ -99,11 +99,9 @@
         <div class="container-fluid header bg-white p-0" dir="ltr">
             <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
                 <div class="col-md-6 p-5 mt-lg-5">
-                    <h1 class="display-5 animated fadeIn mb-4 text-center">املاک <span class="text-primary">
-                            کرج</span>
+                    <h1 class="display-5 animated fadeIn mb-4 text-center">ویلا <span class="text-primary">
+                            125 خاص</span>
                     </h1>
-                    <p class="animated fadeIn fs-4 mb-4 pb-2 text-center">در کمترین زمان و با مناسب ترین قیمت خانه‌دار
-                        شوید</p>
                 </div>
                 <div class="col-md-6 animated fadeIn">
                     <div class="owl-carousel header-carousel">
@@ -119,135 +117,30 @@
         </div>
         <!-- Header End -->
 
-        <!-- Search Start -->
-        <div class="container bg-primary p-3 my-3 rounded-3 wow fadeIn selectCityContainer" data-wow-delay="0.1s">
-            <div class="row">
-                <!-- select city -->
-                <div class="col-12 dropdown d-flex justify-content-center align-items-center ">
-                    <button class="btn btn-lg btn-light dropdown-toggle" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        شهر خود را انتخاب کنید
-                    </button>
-
-                    <ul class="dropdown-menu text-center">
-                        <li><a class="dropdown-item" href="#">مهستان</a></li>
-                        <li><a class="dropdown-item" href="#">کرح</a></li>
-                        <li><a class="dropdown-item" href="#">تهران</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Search End -->
-
-        <!-- Property List Start -->
-        <div class="container-xxl py-5" id="property-list">
-            <div class="container">
-                <div class="row g-0 gx-5 align-items-end" dir="rtl">
-                    <div class="col-lg-6">
-                        <div class="text-end mx-auto mb-5 wow slideInRight" data-wow-delay="0.1s">
-                            <h3 class="mb-3">لیست فایل های کرج</h3>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-center text-lg-end wow slideInRight" data-wow-delay="0.1s">
-                        <ul class="nav nav-pills d-inline-flex justify-content-center mb-5 px-0">
-                            {% for option in options %}
-                            <li class="nav-item my-3 mx-1">
-                                <a class="btn-lg btn-outline-primary {% if forloop.first %} active{% endif %}"
-                                    data-bs-toggle="pill" href="#{{ option.slug }}">{{ option.title }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                <div class="tab-content">
-                    {% for option in options %}
-                    <div id="{{ option.slug }}" class="tab-pane fade show p-0 {% if forloop.first %}active{% endif %}">
-                        <div class="row g-4">
-                            {% for product in option.products %}
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        {% if product.image %}
-                                        {% thumbnail product.image "750x750" as im %}
-                                        <img class="img-thumbnail" alt="{{ product.title }}" src="{{ im.url }}">
-                                        {% endthumbnail %}
-
-                                        {% endif %}
-
-
-                                        <div
-                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3 fs-5">
-                                            {{ product.title }}
-                                        </div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <h5 class="text-primary mb-3">{{ product.price }}</h5>
-                                        <p class="fs-5">{{ product.description }}</p>
-                                        <p>
-                                            <i class="fa fa-map-marker-alt text-primary ms-2"></i>{{ product.address
-                                            }}
-                                        </p>
-                                    </div>
-                                    <div class="d-flex border-top">
-                                        {% if product.area %}
-                                        <small class="flex-fill text-center border-end py-2 fs-6"><i
-                                                class="fa fa-ruler-combined text-primary ms-2"></i>{{ product.area
-                                            }}
-                                        </small>
-                                        {% endif %}
-
-                                        {% if product.room %}
-                                        <small class="flex-fill text-center border-end py-2 fs-6"><i
-                                                class="fa fa-bed text-primary ms-2"></i>{{ product.room }} خواب
-                                        </small>
-                                        {% endif %}
-                                        {% if product.bath %}
-                                        <small class="flex-fill text-center py-2 fs-6"><i
-                                                class="fa fa-bath text-primary ms-2"></i>{{ product.bath }}
-                                            سرویس </small>
-                                        {% endif %}
-
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
-
-
-                        </div>
-                    </div>
-                    {% endfor %}
-
-
-                </div>
-            </div>
-        </div>
-        <!-- Property List End -->
-
-        <!-- advertisement Start -->
+        <!-- description -->
         <div class="container-xxl py-5">
             <div class="container">
-                <div class="row g-5 align-items-center">
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                        <div class="about-img position-relative overflow-hidden p-5 pe-0">
-                            <img class="img-fluid w-100" alt="درباره ما" src="{% static 'img/about.jpg' %}">
+                <div class="row align-items-end">
+                    <div class="col-12">
+                        <div class="text-end mx-auto mb-5 wow slideInRight" data-wow-delay="0.1s">
+                            <h3 class="mb-3">Title</h3>
                         </div>
                     </div>
-                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                        <h4 class="mb-4 fs-2">ثبت آگهی در کرج</h4>
-                        <p class="mb-4 fs-5">ملک شما را در کم‌ترین زمان و با مناسب ترین قیمت ممکن برای شما به فروش
-                            می
-                            رسانیم<br>با
-                            پرکردن فرم زیر کارشناسان ما در اسرع وقت با شما تماس می گیرند</p>
-
-                        <a class="btn-lg btn-primary py-3 mt-3 text-center d-block"
-                            href="{% url 'add_phone_number' %}">ثبت
-                            آگهی</a>
+                    <div class="col-12 text-end wow slideInRight" data-wow-delay="0.1s">
+                        <p class="fs-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. At illo provident libero, eum iure
+                            culpa placeat corrupti numquam ut ipsam quisquam odit sequi tempore maxime. Provident
+                            itaque, quaerat ex illo nostrum nihil deserunt? Excepturi sequi voluptatum impedit provident
+                            soluta itaque? Ad assumenda cupiditate excepturi illo tempora ullam dolorem a doloribus,
+                            veniam ipsa fuga! Et tempora incidunt nam eaque omnis. Placeat recusandae, eius dolor natus
+                            repellat in provident sunt nemo, eos cum sequi magni, dolorem quam? Odio esse, iste at
+                            accusamus corporis enim. Neque porro tempora repudiandae sunt numquam, voluptas pariatur
+                            velit totam sint vitae sed nostrum provident dicta nemo quasi!</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- advertisement Action End -->
+        <!-- END description -->
+
         <!-- recomendation articles -->
         <div class="container-xxl py-5" dir="ltr">
             <div class="container">

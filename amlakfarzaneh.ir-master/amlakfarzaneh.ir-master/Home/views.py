@@ -74,3 +74,18 @@ def add_phone_number(request):
         form = AdvertisingForm()
 
     return render(request, 'Home/adv.html', {'form': form, 'header': header, 'footer': footer})
+# location
+def location(request):
+
+
+    return render(request, 'Home/location.html', )
+# allProperty
+def allProperty(request):
+
+
+    return render(request, 'Home/allProperty.html', )
+# property
+def property(request):
+
+
+    return render(request, 'Home/property.html', )
